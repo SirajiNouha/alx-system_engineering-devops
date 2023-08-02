@@ -1,3 +1,15 @@
 #!/bin/bash
-mv [[:upper:]]* /tmp/u
+# Ensure /tmp/u directory exists
+mkdir -p /tmp/u
+
+# Loop through all files in the current directory
+for file in *
+do
+  # Check if the file starts with an uppercase letter
+  if [[ $file =~ ^[A-Z] ]]
+  then
+    # Move the file to /tmp/u
+    mv "$file" /tmp/u
+  fi
+done
 
